@@ -1,15 +1,15 @@
 {
-    "name": "light-game-engine",
-    "version": "0.1.0",
-    "dependencies": [
-      "glfw3",
-      "vulkan",
-      "stb",
-      {
-        "name": "imgui",
-        "features": ["freetype", "glfw-binding", "vulkan-binding"]
-      },
-      "entt",
-      "linalg"
-    ]
-  }
+  "name": "light-game-engine",
+  "version": "0.1.0",
+  "dependencies": [
+    "glfw3",
+    "vulkan",
+    "stb",
+    {
+      "name": "imgui",
+      "features": [ "freetype", "glfw-binding", "vulkan-binding" ]
+    },
+    "entt",
+    "linalg"
+  ]
+}

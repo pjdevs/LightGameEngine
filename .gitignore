@@ -1,7 +1,7 @@
 .vs
 .vscode
 .idea
-build
 out
 .vscode
 /cmake-build-debug/
+CMakeUserPresets.json

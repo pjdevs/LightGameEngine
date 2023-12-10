@@ -5,6 +5,7 @@
 #include <iostream>
 #include <linalg.h>
 #include <entt/entt.hpp>
+#include <LightGameEngine/Application.hpp>
 
 using namespace linalg::aliases;
 
@@ -56,4 +57,6 @@ int main() {
 	update(registry);
 
 	compute_plane({ 1, 2, 3 }, { 4, 5, 6 }, { 7, 8, 9 });
+
+	Application().run();
 }
