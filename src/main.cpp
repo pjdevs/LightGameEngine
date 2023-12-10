@@ -3,23 +3,28 @@
 //
 
 #include <iostream>
-#include <linalg.h>
+
 #include <entt/entt.hpp>
+#include <linalg.h>
+
 #include <LightGameEngine/Application.hpp>
 
 using namespace linalg::aliases;
 
-struct position {
+struct position
+{
 	float x;
 	float y;
 };
 
-struct velocity {
+struct velocity
+{
 	float dx;
 	float dy;
 };
 
-void update(entt::registry& registry) {
+void update(entt::registry& registry)
+{
 	auto view = registry.view<const position, velocity>();
 
 	// use a callback
@@ -29,26 +34,31 @@ void update(entt::registry& registry) {
 	view.each([](const auto entity, const auto& pos, auto& vel) { std::cout << "Extended callback!\n"; });
 
 	// use a range-for
-	for (auto [entity, pos, vel] : view.each()) {
+	for (auto [entity, pos, vel] : view.each())
+	{
 		std::cout << "Range-for!\n";
 	}
 
 	// use forward iterators and get only the components of interest
-	for (auto entity : view) {
+	for (auto entity : view)
+	{
 		auto& vel = view.get<velocity>(entity);
 		std::cout << "Forward iterator and get!\n";
 	}
 }
 
-float4 compute_plane(float3 a, float3 b, float3 c) {
+float4 compute_plane(float3 a, float3 b, float3 c)
+{
 	float3 n = cross(b - a, c - a);
 	return { n, -dot(n,a) };
 }
 
-int main() {
+int main()
+{
 	entt::registry registry;
 
-	for (auto i = 0u; i < 10u; ++i) {
+	for (auto i = 0u; i < 10u; ++i)
+	{
 		const auto entity = registry.create();
 		registry.emplace<position>(entity, i * 1.f, i * 1.f);
 		if (i % 2 == 0) { registry.emplace<velocity>(entity, i * .1f, i * .1f); }
